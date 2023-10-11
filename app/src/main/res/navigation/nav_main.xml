@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.ariabagas.mandiriflix.ui.screen.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.ariabagas.mandiriflix.ui.screen.moviedetails.MovieDetailsFragment"
+        android:label="MovieDetailsFragment"
+        tools:layout="@layout/fragment_movie_details">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="backgroundColor"
+            app:argType="integer" />
+
+    </fragment>
+    <action
+        android:id="@+id/action_global_movieDetailsFragment"
+        app:destination="@id/movieDetailsFragment" />
+    <fragment
+        android:id="@+id/youtubeFragment"
+        android:name="com.ariabagas.mandiriflix.ui.screen.youtube.YoutubeFragment"
+        android:label="YoutubeFragment"
+        tools:layout="@layout/fragment_youtube_player">
+
+        <argument
+            android:name="youtubeId"
+            app:argType="string" />
+
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_youtubeFragment"
+        app:destination="@id/youtubeFragment" />
+
+    <fragment
+        android:id="@+id/seeAllFragment"
+        android:name="com.ariabagas.mandiriflix.ui.screen.seeall.SeeAllFragment"
+        android:label="SeeAllFragment">
+        <argument
+            android:name="contentType"
+            app:argType="com.ariabagas.mandiriflix.util.Content" />
+        <argument
+            android:name="detailType"
+            android:defaultValue="@null"
+            app:argType="com.ariabagas.mandiriflix.util.Type"
+            app:nullable="true" />
+        <argument
+            android:name="genreId"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <argument
+            android:name="listId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="backgroundColor"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <argument
+            android:name="region"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="videoList"
+            android:defaultValue="@null"
+            app:argType="com.ariabagas.mandiriflix.core.model.Video[]"
+            app:nullable="true" />
+        <argument
+            android:name="imageList"
+            android:defaultValue="@null"
+            app:argType="com.ariabagas.mandiriflix.core.model.Image[]"
+            app:nullable="true" />
+        <argument
+            android:name="castList"
+            android:defaultValue="@null"
+            app:argType="com.ariabagas.mandiriflix.core.model.Person[]"
+            app:nullable="true" />
+        <argument
+            android:name="personMovieCreditsList"
+            android:defaultValue="@null"
+            app:argType="com.ariabagas.mandiriflix.core.model.Movie[]"
+            app:nullable="true" />
+        <argument
+            android:name="personTvCreditsList"
+            android:defaultValue="@null"
+            app:argType="com.ariabagas.mandiriflix.core.model.Tv[]"
+            app:nullable="true" />
+        <argument
+            android:name="movieRecommendationsList"
+            android:defaultValue="@null"
+            app:argType="com.ariabagas.mandiriflix.core.model.Movie[]"
+            app:nullable="true" />
+        <argument
+            android:name="tvRecommendationsList"
+            android:defaultValue="@null"
+            app:argType="com.ariabagas.mandiriflix.core.model.Tv[]"
+            app:nullable="true" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_seeAllFragment"
+        app:destination="@id/seeAllFragment" />
+
+
+</navigation>

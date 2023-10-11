@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.ariabagas.mandiriflix.util.ImageQuality" />
+
+        <variable
+            name="movieReview"
+            type="com.ariabagas.mandiriflix.core.model.MovieReview" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/start_margin">
+
+        <ImageView
+            android:id="@+id/image"
+            circleCrop="@{true}"
+            imageQuality="@{ImageQuality.HIGH}"
+            imageUrl="@{movieReview.avatarUrl}"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/contentReview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/start_margin"
+            android:layout_marginEnd="@dimen/end_margin_small"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Authors Name: `+movieReview.authorName}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin_small"
+                android:text="@{movieReview.content}" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
